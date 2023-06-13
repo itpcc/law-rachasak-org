@@ -1,0 +1,37 @@
+/*place global styles here */
+html,
+body {
+	@apply h-full overflow-hidden;
+	@apply font-content;
+}
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('/fonts/Quicksand.ttf');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Blobmoji';
+	src: url('/fonts/Blobmoji.ttf'), url('/fonts/BlobmojiWindows.ttf');
+	font-display: swap;
+}
+
+h1, h2, h3, h4 {
+	@apply font-head;
+}
+
+.page-namecard .contact-entity {
+	@apply grid lg:grid-flow-col lg:auto-cols-auto sm:grid-cols-1
+}
+.page-namecard .contact-dt {
+	@apply inline font-semibold text-xl dark:text-blue-200;
+}
+.page-namecard .contact-dd {
+	@apply inline text-xl text-left dark:text-blue-300;
+}
+
+.legal-content pre {
+	width: 100%;
+	@apply break-all;
+}
