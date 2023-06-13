@@ -263,7 +263,7 @@ export function load({ params }) {
 
 ## Privacy Policy for Customer
 
-Eric Legal & Consultant office recognizes the importance of the protection of your personal data. This Privacy Policy explains our practices regarding the collection, use or disclosure of personal data including other rights of the Data Subjects in accordance with the Personal Data Protection Laws.
+Eric Lawyer & Consultant office recognizes the importance of the protection of your personal data. This Privacy Policy explains our practices regarding the collection, use or disclosure of personal data including other rights of the Data Subjects in accordance with the Personal Data Protection Laws.
 
 
 ### Collection of Personal Data
@@ -398,7 +398,7 @@ If you have any questions about this Privacy Policy or would like to exercise yo
 
 #### Data Controller
 
-Eric Legal & Consultant office
+Eric Lawyer & Consultant office
 
 92/1, Ti Wang, Thung Song, Nakhon Si Thammarat, 80110
 
@@ -410,7 +410,7 @@ dpo@ericconsultant.co.th
 
 #### Data Protection Officer
 
-Eric Legal & Consultant office
+Eric Lawyer & Consultant office
 
 92/1, Ti Wang, Thung Song, Nakhon Si Thammarat, 80110
 
