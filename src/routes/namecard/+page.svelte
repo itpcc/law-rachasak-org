@@ -14,6 +14,23 @@
 		avatarFilter = mode ? '' : '#BlueNight';
 	});
 
+	// Use this instead of directly link to prevent "is not commonly downloaded and it may dangerous"
+	async function downloadVcf () {
+		const dataInfo = await data.info;
+		const code = (Object.keys(dataInfo ?? {}).length === 0) ? 'general' : data.code;
+		const vcard = await fetch(`https://lawapi.ericconsultant.in.th/namecards/${encodeURI(code)}.vcf`)
+			.then(resp => resp.blob())
+		const vcardUrl = window.URL.createObjectURL(vcard);
+		// Export to file
+		var element = document.createElement('a');
+		element.setAttribute('href', vcardUrl);
+		element.setAttribute('download', 'eric-legal-consultant.vcf');
+		element.style.display = 'none';
+		document.body.appendChild(element);
+		element.click();
+		document.body.removeChild(element);
+		window.URL.revokeObjectURL(vcardUrl);
+	}
 </script>
 
 <BlueNight />
@@ -89,21 +106,17 @@
 						{/if}
 					</dl>
 					<div class="flex mt-6 justify-end">
-						<a
-							target="_blank"
+						<button
 							class="
 								btn btn-lg variant-filled
 								hover:text-surface-900
 								dark:hover:bg-surface-900
 								dark:hover:text-surface-50
 							"
-							href={`https://lawapi.ericconsultant.in.th/namecards/${encodeURI(
-								(new URL(document.location.href)).searchParams.get('code') ??
-								'general.vcf'
-							)}`}
+							on:click={downloadVcf}
 						>
 							<i class="fas fa-address-card"></i> Download Contact
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>

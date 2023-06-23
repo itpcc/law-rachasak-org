@@ -15,6 +15,7 @@ export interface ReturnInfo {
 };
 
 export interface ReturnValue {
+	code: string,
 	has_data: boolean,
 	info?: Promise<ReturnInfo>
 };
@@ -25,6 +26,7 @@ export function load({ fetch, url }): ReturnValue {
 
 	if (code) {
 		return {
+			code,
 			has_data: true,
 			info: new Promise<ReturnInfo>((resolve) => {
 				fetch(`https://lawapi.ericconsultant.in.th/namecards/${encodeURI(code)}.json`)
@@ -38,5 +40,5 @@ export function load({ fetch, url }): ReturnValue {
 		}
 	}
 
-	return { has_data: false };
+	return { code: 'general', has_data: false };
 };
