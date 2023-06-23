@@ -41,7 +41,6 @@
 	"dependencies": {
 		"bytemd": "^1.21.0",
 		"daisyui": "^3.0.25",
-		"tailwind-fontawesome": "^0.5.0",
-		"vcards-js": "^2.10.0"
+		"tailwind-fontawesome": "^0.5.0"
 	}
 }

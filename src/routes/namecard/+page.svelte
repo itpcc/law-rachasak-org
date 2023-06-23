@@ -1,7 +1,6 @@
 <script lang='ts'>
 	import { BlueNight, modeCurrent } from '@skeletonlabs/skeleton';
 	import type { ReturnValue } from './+page';
-	import vCardsJS from 'vcards-js';
 
     /** @type {import('./$types').PageData} */
     export let data: ReturnValue;
@@ -10,84 +9,10 @@
 	import imgMeDoc from '$lib/images/77.jpg';
 
 	let avatarFilter = '';
-	let avatarSrc = '';
-	let avatarbase64 = '';
 
 	modeCurrent.subscribe((mode) => {
 		avatarFilter = mode ? '' : '#BlueNight';
 	});
-
-	const handleProfileLoaded = (imgEl: HTMLImageElement) => {
-		avatarSrc = imgEl.src;
-
-		imgEl.addEventListener('load', () => {
-			// Convert image to base64
-			const canvas = document.createElement('canvas');
-			const ctx = canvas.getContext('2d');
-
-			if (! ctx) return;
-
-			canvas.height = 640;
-			canvas.width = canvas.height * imgEl.naturalWidth / imgEl.naturalHeight;
-
-			ctx.drawImage(imgEl, 0, 0, canvas.height, canvas.width);
-
-			avatarbase64 = canvas.toDataURL();
-        });
-	};
-
-	async function export2VCard () {
-		let vCard = vCardsJS();
-		// Set properties
-		vCard.firstName = 'ราชศักดิ์';
-		vCard.lastName = 'รักษ์กำเนิด';
-		vCard.organization = 'Eric Legal & Consultant';
-		vCard.workPhone = '+6621620958';
-		vCard.title = 'Consultant';
-		vCard.url = 'https://www.ericconsultant.in.th/';
-
-		if (avatarbase64) vCard.photo.embedFromString(avatarbase64, 'image/jpeg');
-		else if (avatarSrc) vCard.photo.attachFromUrl(avatarSrc, 'JPEG');
-
-		// custom data
-		if (data.has_data) {
-			try {
-				const info = await data.info;
-				for (const type in info) {
-					if (type === 'note') {
-						vCard.note = `${info[type].contact_type}: ${info[type].conatc_text}`;
-					} else if (info[type]?.vCard) {
-						if (info[type].vCard?.type === 'socialUrls') {
-							vCard.socialUrls[info[type].vCard?.social] = info[type].vCard?.value;
-						} else {
-							vCard[info[type].vCard?.type] = info[type].vCard?.value;
-						}
-					}
-				}
-			} catch (e) {
-				console.error('data.info Error', e);
-			}
-		}
-
-		// Export to file
-		var element = document.createElement('a');
-		element.setAttribute(
-			'href',
-			'data:text/plain;charset=utf-8,' +
-				encodeURIComponent(vCard
-					.getFormattedString()
-					// @see https://stackoverflow.com/a/74264541
-					.replace(/SOCIALPROFILE;CHARSET=UTF-8;/gm, "SOCIALPROFILE;"))
-		);
-		element.setAttribute('download', 'eric-legal-consultant.vcf');
-
-		element.style.display = 'none';
-		document.body.appendChild(element);
-
-		element.click();
-
-		document.body.removeChild(element);
-	}
 
 </script>
 
@@ -164,24 +89,26 @@
 						{/if}
 					</dl>
 					<div class="flex mt-6 justify-end">
-						<button
-							type="button"
+						<a
+							target="_blank"
 							class="
 								btn btn-lg variant-filled
 								hover:text-surface-900
 								dark:hover:bg-surface-900
 								dark:hover:text-surface-50
 							"
-							on:click={export2VCard}
+							href={`https://lawapi.ericconsultant.in.th/namecards/${encodeURI(
+								(new URL(document.location.href)).searchParams.get('code') ??
+								'general.vcf'
+							)}`}
 						>
 							<i class="fas fa-address-card"></i> Download Contact
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>
 			<figure class="lg:col-span-2 block max-md:hidden">
 				<img
-					use:handleProfileLoaded
 					src={imgMeDoc}
 					alt="Eric in barrister suit"
 					class="shadow-xl block max-md:hidden"

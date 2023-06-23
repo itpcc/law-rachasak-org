@@ -14,9 +14,6 @@ dependencies:
   tailwind-fontawesome:
     specifier: ^0.5.0
     version: 0.5.0(autoprefixer@10.4.14)(postcss@8.4.24)
-  vcards-js:
-    specifier: ^2.10.0
-    version: 2.10.0
 
 devDependencies:
   '@floating-ui/dom':
@@ -3180,10 +3177,6 @@ packages:
       diff: 5.1.0
       kleur: 4.1.5
       sade: 1.8.1
-    dev: false
-
-  /vcards-js@2.10.0:
-    resolution: {integrity: sha512-nah+xbVInVJaO6+C5PEUqaougmv8BN8aa7ZCtmVQcX6eWIZGRukckFtseXSI7KD7/nXtwkJe624y42T0r+L+AQ==}
     dev: false
 
   /vfile-location@4.1.0:
