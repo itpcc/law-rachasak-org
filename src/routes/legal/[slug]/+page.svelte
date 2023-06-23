@@ -1,5 +1,6 @@
 <script>
-	import SvelteMarkdown from 'svelte-markdown';
+	import { Viewer as MarkdownViewer } from 'bytemd'
+
     /** @type {import('./$types').PageData} */
     export let data;
 </script>
@@ -16,6 +17,6 @@
 		flex flex-col space-y-10 mx-10 pt-10
 		text-justify font-content legal-content leading-6
 	">
-		<SvelteMarkdown source={data.content} />
+		<MarkdownViewer value={data.content} />
 	</div>
 </div>

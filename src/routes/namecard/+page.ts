@@ -6,6 +6,11 @@ export interface ReturnInfo {
 		conatc_text: string,
 		link: string,
 		qr: boolean,
+		vCard? : {
+			type: string,
+			social?: string,
+			value: string,
+		}
 	},
 };
 
@@ -22,7 +27,7 @@ export function load({ fetch, url }): ReturnValue {
 		return {
 			has_data: true,
 			info: new Promise<ReturnInfo>((resolve) => {
-				fetch(`https://lawapi.rachasak.org/namecards/${encodeURI(code)}.json`)
+				fetch(`https://lawapi.ericconsultant.in.th/namecards/${encodeURI(code)}.json`)
 					.then(res => res.json())
 					.then(res => resolve(res))
 					.catch((e) => {
