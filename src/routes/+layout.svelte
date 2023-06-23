@@ -67,9 +67,17 @@
 				</li>
 			</ul>
 		</nav>
-	{:else}
+		{:else if $drawerStore.id === 'qr-img'}
+			<div class="w-full grid justify-center justify-items-center">
+				<img
+					src={`https://quickchart.io/qr?text=${encodeURI($drawerStore.meta)}&size=500&margin=3`}
+					class="w-full max-w-screen h-full max-h-screen"
+					alt="QR code"
+				/>
+			</div>
+		{:else}
 		<!-- (fallback contents) -->
-	{/if}
+		{/if}
 </Drawer>
 
 <!-- App Shell -->
@@ -183,7 +191,7 @@
 						<div>
 							<h2>Info</h2>
 							<ol>
-								<li><a href="/namecard/contact">Contact</a></li>
+								<li><a href="/namecard">Contact</a></li>
 								<li><a href="/consult">Consult</a></li>
 							</ol>
 						</div>

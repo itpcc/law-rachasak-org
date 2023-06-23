@@ -1,6 +1,10 @@
 <script lang='ts'>
 	import { BlueNight, modeCurrent } from '@skeletonlabs/skeleton';
+	import { Drawer, drawerStore } from '@skeletonlabs/skeleton';
+	import type { DrawerSettings } from '@skeletonlabs/skeleton';
+
 	import type { ReturnValue } from './+page';
+
 
     /** @type {import('./$types').PageData} */
     export let data: ReturnValue;
@@ -13,6 +17,16 @@
 	modeCurrent.subscribe((mode) => {
 		avatarFilter = mode ? '' : '#BlueNight';
 	});
+
+	function openQR(url: string) {
+		const drawerSettings: DrawerSettings = {
+			id: 'qr-img',
+			regionDrawer: 'flex',
+			// Metadata
+			meta: url
+		};
+		drawerStore.open(drawerSettings);
+	}
 
 	// Use this instead of directly link to prevent "is not commonly downloaded and it may dangerous"
 	async function downloadVcf () {
@@ -93,6 +107,15 @@
 													<i class="fa-brands fa-{info.icon}" style="color: #{info.icon_color};"></i> &nbsp;
 												{/if}
 												{info.contact_type}
+												{#if info.qr}
+													<button
+														type="button"
+														class="btn-icon variant-filled"
+														on:click={() => openQR(info.link)}
+													>
+														<i class="fas fa-qrcode"></i>
+													</button>
+												{/if}
 											</dt>
 											<dd class="contact-dd">
 												<a href="{info.link}" target="_blank">{info.conatc_text}</a>
