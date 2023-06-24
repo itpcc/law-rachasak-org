@@ -76,7 +76,7 @@
 							<dt class="contact-dt">
 								<span>🌏</span> Website: &nbsp;
 							</dt>
-							<dd class="contact-dd"><a href="https://law.rachasak.org" target="_blank">www.ericconsultant.co.th</a></dd>
+							<dd class="contact-dd"><a href="https://www.ericconsultant.in.th" target="_blank">www.ericconsultant.co.th</a></dd>
 						</div>
 						<div class="contact-entity">
 							<dt class="contact-dt">
