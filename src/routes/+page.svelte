@@ -126,7 +126,7 @@
 				gradient-heading drop-shadow-xl mix-blend-multiply
 				text-5xl text-center
 				lg:text-8xl lg:text-left
-			">Eric<br />Lawyer &<br>Consultant</h1>
+			">Eric<br />Legal &<br>Consultant</h1>
 			<div class="flex justify-left space-y-2 my-5 z-10">
 				<h2 class="text-xl lg:text-2xl text-indigo-800 dark:text-sky-200">The consultant you can trust</h2>
 			</div>
