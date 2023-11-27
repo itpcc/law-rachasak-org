@@ -10,7 +10,7 @@
 		Drawer, drawerStore, type DrawerSettings,
 		setModeCurrent, modeCurrent
 	} from '@skeletonlabs/skeleton';
-	import complaintProc from '$lib/doc/complaint-procedure-ericconsultant.in.th.pdf';
+	import complaintProc from '$lib/docs/complaint-procedure-ericconsultant.in.th.pdf';
 
 	function triggerMenu(): void {
 		const drawerSettings: DrawerSettings = {
