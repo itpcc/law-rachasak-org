@@ -10,6 +10,7 @@
 		Drawer, drawerStore, type DrawerSettings,
 		setModeCurrent, modeCurrent
 	} from '@skeletonlabs/skeleton';
+	import complaintProc from '$lib/doc/complaint-procedure-ericconsultant.in.th.pdf';
 
 	function triggerMenu(): void {
 		const drawerSettings: DrawerSettings = {
@@ -204,7 +205,7 @@
 						Copyright © {(new Date()).getFullYear()} Eric Lawyer & Consultant office.
 						Developed by <a href="https://itpcc.net" target="_blank">@ITPCC</a> based on <a href="https://www.skeleton.dev" target="_blank" rel="noreferrer">Skelton.dev</a> boilerplate.
 						Stock images from <a href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>.<br/>
-						<a href="/docs/complaint-procedure-ericconsultant.in.th.pdf" target="_blank">การจัดการเรื่องร้องเรียนและระงับข้อพิพาท</a>
+						<a href={complaintProc} target="_blank">การจัดการเรื่องร้องเรียนและระงับข้อพิพาท</a>
 					</p>
 				</div>
 			</div>
