@@ -53,7 +53,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="/consult" style="padding-left: 0;">
+					<a href="https://fastwork.co/user/itpcckub/legal-33946713" style="padding-left: 0;">
 						<span class="
 							badge w-12 text-xl py-5 px-8
 							bg-secondary-500 text-grey-50
