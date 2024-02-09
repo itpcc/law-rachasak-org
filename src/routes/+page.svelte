@@ -205,7 +205,7 @@
 					/>
 				</header>
 				<div class="p-4 space-y-4 px-5">
-					<h3 class="h3 font-head">{svc.topic}</h3>
+					<h2 class="h3 font-head">{svc.topic}</h2>
 					<article class="font-content font-normal">
 						<p>{svc.desc}</p>
 					</article>
