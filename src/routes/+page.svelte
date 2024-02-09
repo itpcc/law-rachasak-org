@@ -8,6 +8,7 @@
 	import type { Writable } from 'svelte/store';
 
 	// Image optimization
+	import ladyJustice from '$lib/images/lady-justice.jpg?h=1080';
 	import imgSvcDoc from '$lib/images/document.jpg';
 	import imgSvcConsult from '$lib/images/consult.jpg';
 	import imgSvcLibrary from '$lib/images/library.jpg';
@@ -110,7 +111,7 @@
 			place-self-stretch self-stretch
 			absolute -z-1 opacity-30 bg-center
 			lg:relative lg:z-0 lg:opacity-100 lg:bg-left-top
-		" style="filter: url({heroImgFilter})">
+		" style="filter: url({heroImgFilter}); background-image: url({ladyJustice});">
 			<button class="
 				chip variant-filled
 				static bottom-1 left-1 hidden
@@ -246,9 +247,6 @@
 <style lang="postcss">
 	.accent-section-bg {
 		@apply bg-white/60 dark:bg-white/10 backdrop-blur-lg bg-origin-border
-	}
-	.hero-image {
-		background-image: url($lib/images/lady-justice.jpg);
 	}
 	@screen lg {
 		.hero-image {
